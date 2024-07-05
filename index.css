@@ -49,6 +49,10 @@ body {
     height: 300px;
     width: 250px;
 }
+.image-bottom {
+    height: 300px;
+    width: 500px;
+}
 @keyframes blinkEmoji {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
