@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Celebration Post</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="emoji-container" id="emojiContainer"></div>
+    <div class="container">
+        <h1 class="birthday-header">Happy Birthday Sahasra!</h1>
+        <p class="birthday-message">Wishing you a day filled with love, joy, and lots of cake!</p>
+        <p class="birthday-message">నువ్వు ఎల్లప్పుడూ నవ్వుతూ, హాయిగా సుఖ సంతోషాలతో ఉండాలని కోరుకుంటూ జన్మదిన శుభాకాంక్షలు </p>
+        <div class="birthday-images">
+            <img class="image" src="https://res.cloudinary.com/dlngyh6jo/image/upload/v1719898203/Sahastra/images_wqo87j.jpg" alt="Birthday Cake">
+            <img class="image" src="https://res.cloudinary.com/dlngyh6jo/image/upload/v1718626830/Sahastra/1718607216508_olzn8g.jpg" alt="Birthday Balloons">
+            <img class="image" src="https://res.cloudinary.com/dlngyh6jo/image/upload/v1719905972/Sahastra/birth_auy8b1.jpg" alt="Birthday Party">
+        </div>
+    </div>
+    <div class="lights-container" id="lightsContainer"></div>
+    <audio id="birthdayMusic" autoplay loop>
+        <source src="https://voca.ro/1gIiM80bkY8S.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('birthdayMusic');
+            audio.play().catch(function(error) {
+                console.log('Autoplay was prevented:', error);
+                // Display a message if autoplay is prevented
+                var errorMessage = document.createElement('p');
+                errorMessage.textContent = 'Click to play the birthday music';
+                errorMessage.style.color = '#fff';
+                errorMessage.style.fontSize = '20px';
+                errorMessage.style.cursor = 'pointer';
+                errorMessage.addEventListener('click', function() {
+                    audio.play();
+                    errorMessage.remove();
+                });
+                document.body.appendChild(errorMessage);
+            });
+
+            // JavaScript to create and position emojis randomly
+            var emojiContainer = document.getElementById('emojiContainer');
+            var emojis = ['🎉', '🎂', '🎈', '🎁', '🥳', '🍰'];
+            for (var i = 0; i < 100; i++) {  // Add 100 emojis
+                var emoji = document.createElement('div');
+                emoji.className = 'emoji';
+                emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.top = Math.random() * 100 + 'vh';
+                emoji.style.left = Math.random() * 100 + 'vw';
+                emoji.style.animationDelay = Math.random() * 5 + 's';  // Random delay
+                emojiContainer.appendChild(emoji);
+            }
+
+            // JavaScript to create and position lights randomly around the margins
+            var lightsContainer = document.getElementById('lightsContainer');
+            for (var j = 0; j < 100; j++) {  // Add 50 lights
+                var light = document.createElement('div');
+                light.className = 'light';
+                var position = Math.random() < 0.5 ? 'top' : 'left';
+                if (position === 'top') {
+                    light.style.top = Math.random() * 100 + 'vh';
+                    light.style.left = Math.random() < 0.5 ? 0 : 'calc(100% - 10px)';
+                } else {
+                    light.style.left = Math.random() * 100 + 'vw';
+                    light.style.top = Math.random() < 0.5 ? 0 : 'calc(100% - 10px)';
+                }
+                light.style.animationDelay = Math.random() * 5 + 's';  // Random delay
+                lightsContainer.appendChild(light);
+            }
+        });
+    </script>
+</body>
+</html>

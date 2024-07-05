@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    animation: blinkBackground 2s infinite;
+    overflow: hidden;
+    position: relative;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: auto; /* Show vertical scrollbar when needed */
+}
+@keyframes blinkBackground {
+    0% { background-color: #ff9a9e; }
+    20% { background-color: #fad0c4; }
+    40% { background-color: #fbc2eb; }
+    60% { background-color: #f6d365; }
+    80% { background-color: #fda085; }
+    100% { background-color: #ff9a9e; }
+}
+.container {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%; /* Ensure content fits within viewport */
+}
+.birthday-header {
+    font-size: 36px;
+    color: #c93131;
+}
+.birthday-message {
+    font-size: 24px;
+    color: #4b0082;
+    margin: 20px 0;
+}
+.birthday-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.birthday-images img {
+    max-width: 300px;
+    border: 5px solid #ff69b4;
+    border-radius: 10px;
+}
+.image {
+    height: 300px;
+    width: 250px;
+}
+@keyframes blinkEmoji {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+.emoji-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.emoji {
+    font-size: 2rem;
+    position: absolute;
+    animation: blinkEmoji 1.5s infinite;
+}
+.lights-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+.light {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px yellow;
+    animation: blinkLight 1.5s infinite;
+}
+@keyframes blinkLight {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
